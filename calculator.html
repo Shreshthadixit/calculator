@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .calculator{
+            width: 20%;
+            height: 300px;
+            /* background-color: aqua; */
+            /* border: 1px solid black; */
+        }
+        input{
+            font-size: 20px;
+            width: 100%;
+            text-align: end;
+            height: 50px;
+            outline-style: none;
+            
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(3,auto);
+            grid-template-rows: repeat(3,auto);
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input id="screen" type="screen" placeholder="0">
+        <div class="grid">
+        <button onClick="erase()">c</button>
+        <button onClick="getData('1')">1</button>
+        <button onClick="getData('2')">2</button>
+        <button onClick="getData('3')">3</button>
+        <button onClick="getData('%')">%</button>
+        <button onClick="getData('4')">4</button>
+        <button onClick="getData('5')">5</button>
+        <button onClick="getData('6')">6</button>
+        <button onClick="getData('*')">*</button>
+        <button onClick="getData('+')">+</button>
+        <button onClick="getData('7')">7</button>
+        <button onClick="getData('8')">8</button>
+        <button onClick="getData('9')">9</button>
+        <button onClick="getData('-')">-</button>
+        <button onClick="getData('0')">0</button>
+        <button onClick="getData('#')">#</button>
+        <button onClick="getData('/')">/</button>
+        <button onClick="calculate()">=</button>
+       </div>C
+    </div>
+    <script>
+       let screen=document.getElementById('screen')
+       console.log(screen)
+
+
+       let bag=""
+       function getData(ans){
+        console.log(ans)
+        bag=bag+ans
+        screen.value=bag
+       }
+       function erase(){
+        console.log("running")
+        screen.value=""
+        bag=""
+       }
+       function  calculate(){
+        console.log("calcuate")
+        console.log(bag)
+        let ans=eval(bag)
+        console.log(ans)
+        screen.value=ans                                                       
+       }
+
+    </script>
+</body>
+</html>
